@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
     kind: Deployment
     metadata:
       name: nexus
-      namespace: nexus
+      namespace: default
     spec:
       replicas: 1
       selector:
@@ -16,13 +16,6 @@ apiVersion: extensions/v1beta1
           containers:
             - name: nexus
               image: sonatype/nexus3:latest
-              resources:
-                limits:
-                  memory: "4Gi"
-                  cpu: "1000m"
-                requests:
-                  memory: "2Gi"
-                  cpu: "500m"
               ports:
                 - containerPort: 8081
               volumeMounts:
